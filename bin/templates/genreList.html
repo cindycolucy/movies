@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Genre List</title>
+	<title>Genre List</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css"></link>
 </head>
 <body>
-<h1>List of Genres</h1>
-
-	<ul>
-		<li th:each="currentGenre: ${genres}"><a th:href="@{/genre(id=${currentGenre.id})}" th:text="${currentGenre.name}" /></li>
-	</ul>
+	<nav class="col-1">
+		<img src="/images/movie-reel.jpg"></img>
+	</nav>
+	<div class="col-2">
+	<header>
+	<h1>Cindy's Movie Reviews</h1>
+	<h2>Welcome to Cindy's movie reviews. Click on your favorite genre to get started.</h2>
+	<h3>List of Genres</h3></header>
+		<main class="content">
+		<article><a th:each="currentGenre: ${genres}" th:href="@{/genre(id=${currentGenre.id})}"><div th:text="${currentGenre.name}" ></div></a></article>
+		</main>
+		<footer></footer>
+	</div>
 
 </body>
 </html>

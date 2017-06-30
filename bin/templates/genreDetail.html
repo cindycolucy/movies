@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title th:text="${genre.name}" />
+	<title th:text="${genre.name}" />
 </head>
 <body>
+	<a class = "backtomain" th:href="@{/genres(title=${movies})}">Back to Home</a>
+	
 	<h1 th:text="'Movies for Genre ' + ${genre.name}" />
 
-<article>
-<a th:each="current: ${genre.movies}" th:href="@{/movie/(id=${current.id})}">
-<div th:text="${current.title}" ></div></a>
-</article>
+	<article>
+		<a th:each="current: ${genre.movies}" th:href="@{/movie/(id=${current.id})}">
+			<div th:text="${current.title}" ></div></a>
+		</article>
 
-</body>
-</html>
+	</body>
+	</html>

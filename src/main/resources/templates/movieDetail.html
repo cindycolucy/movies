@@ -5,6 +5,8 @@
 </head>
 <body>
 
+<a class = "backtomain" th:href="@{/genres(title=${movies})}">Back to Home</a>
+
 <h1 th:text="${movie.title}" />
 
 <img th:src="${movie.imageUrl}"/>
