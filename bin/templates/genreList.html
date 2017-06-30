@@ -6,5 +6,9 @@
 <body>
 <h1>List of Genres</h1>
 
+	<ul>
+		<li th:each="currentGenre: ${genres}"><a th:href="@{/genre(id=${currentGenre.id})}" th:text="${currentGenre.name}" /></li>
+	</ul>
+
 </body>
 </html>

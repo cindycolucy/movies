@@ -25,6 +25,7 @@ public class MovieController {
 	@RequestMapping("/genre")
 	public String fetchGenre(@RequestParam("id") Long id, Model model) {
 		model.addAttribute(genreRepo.findOne(id));
+		model.addAttribute("movies", movieRepo.findAll());
 		return "genreDetail";
 	}
 	

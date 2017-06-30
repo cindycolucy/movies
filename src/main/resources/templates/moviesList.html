@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Movie List</title>
+</head>
+<body>
+<h1>List of Movies</h1>
+	
+	<ul>
+		<li th:each="currentMovie: ${movies}"><a th:href="@{/movie(id=${currentMovie.id})}" th:text="${currentMovie.getTitle()}" /></li>
+	</ul>
+
+</body>
+</html>

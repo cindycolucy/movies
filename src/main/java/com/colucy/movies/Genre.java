@@ -12,29 +12,38 @@ public class Genre {
 
 	@Id
 	@GeneratedValue
-	private Long id;
+	public Long id;
 
-	private String title;
+
+	private String name;
 	private String description;
 
 	@OneToMany(mappedBy = "genre")
 	private Set<Movie> movies;
 
-	public String getTitle() {
-		return title;
+	public String getName() {
+		return name;
 	}
 
 	public String getDescription() {
 		return description;
 	}
 
-	public Genre(String title, String description) {
-		this.title = title;
+	public Set<Movie> getMovies() {
+		return movies;
+	}
+	
+	public Genre(String name, String description) {
+		this.name = name;
 		this.description = description;
 	}
 
 	private Genre() {
 
+	}
+	@Override
+	public String toString() {
+		return name;
 	}
 
 }

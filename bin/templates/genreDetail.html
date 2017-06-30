@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title th:text="${genre.name}" />
+</head>
+<body>
+	<h1 th:text="'Movies for Genre ' + ${genre.name}" />
+
+<article>
+<a th:each="current: ${genre.movies}" th:href="@{/movie/(id=${current.id})}">
+<div th:text="${current.title}" ></div></a>
+</article>
+
+</body>
+</html>
