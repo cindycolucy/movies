@@ -64,6 +64,7 @@ body {
   flex: 3;
   min-height: 60vh;
   color: blanchedalmond;
+  padding: 50px;
 }
 .content > aside {
   background: beige;

@@ -2,11 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<title th:text="${genre.name}" />
+	<link rel="stylesheet" type="text/css" href="/css/style2.css"></link>
 </head>
 <body>
+<header>
 	<a class = "backtomain" th:href="@{/genres(title=${movies})}">Back to Home</a>
 	
-	<h1 th:text="'Movies for Genre ' + ${genre.name}" />
+	<h1 th:text="'Movies for Genre ' + ${genre.name}" /></header>
 
 	<article>
 		<a th:each="current: ${genre.movies}" th:href="@{/movie/(id=${current.id})}">
