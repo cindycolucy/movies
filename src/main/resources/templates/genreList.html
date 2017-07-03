@@ -15,6 +15,7 @@
 	<h3>List of Genres</h3></header>
 		<main class="content">
 		<article><a th:each="currentGenre: ${genres}" th:href="@{/genre(id=${currentGenre.id})}"><div th:text="${currentGenre.name}" ></div></a></article>
+		<article><a th:href="@{/movies/}">All Movies</a></article>
 		</main>
 		<footer></footer>
 	</div>

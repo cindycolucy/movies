@@ -7,8 +7,10 @@
 <body>
 <header>
 	<a class = "backtomain" th:href="@{/genres(title=${movies})}">Back to Home</a>
+
+	<h1>Cindy's Movies Reviews</h1>
 	
-	<h1 th:text="'Movies for Genre ' + ${genre.name}" /></header>
+	<h2 th:text="'Movies for Genre ' + ${genre.name}" /></header>
 
 	<article>
 		<a th:each="current: ${genre.movies}" th:href="@{/movie/(id=${current.id})}">
