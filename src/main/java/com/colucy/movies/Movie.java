@@ -16,7 +16,7 @@ public class Movie {
 	@ManyToOne
 	private Genre genre;
 
-	private String title; // Do I need this???
+	private String title;
 	
 	@Lob
 	private String description;
@@ -25,6 +25,8 @@ public class Movie {
 	private String review;
 
 	private String imageUrl;
+	
+	private String tag;
 	
 	public Genre getGenre() {
 		return genre;
@@ -45,6 +47,10 @@ public class Movie {
 	public String getImageUrl() {
 		return imageUrl;
 	}
+	
+	public String getTag() {
+		return tag;
+	}
 
 	public Boolean hasImageUrl() {
 		return imageUrl != null;
@@ -54,12 +60,13 @@ public class Movie {
 
 	}
 
-	public Movie(Genre genre, String title, String description, String review, String imageUrl) {
+	public Movie(Genre genre, String title, String description, String review, String imageUrl, String tag) {
 		this.genre = genre;
 		this.title = title;
 		this.description = description;
 		this.review = review;
 		this.imageUrl = imageUrl;
+		this.tag = tag;
 
 	}
 

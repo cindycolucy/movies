@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title th:text="${movie.title}" />
+	<title th:text="${movie.title}" />
 </head>
 <body>
 
-<a class = "backtomain" th:href="@{/genres(title=${movies})}">Back to Home</a>
+	<a class = "backtomain" th:href="@{/genres(title=${movies})}">Back to Home</a>
 
-<h1 th:text="${movie.title}" />
+	<h1 th:text="${movie.title}" />
 
-<img th:src="${movie.imageUrl}"/>
+	<img th:src="${movie.imageUrl}"/>
 
-<p th:text="'Genre: ' + ${movie.genre}"></p>
-<p th:text="'Description: ' + ${movie.description}"></p>
-<p th:text="'Review: ' + ${movie.review}"></p>
+	<p th:text="'Genre: ' + ${movie.genre}"></p>
+	<p th:text="'Description: ' + ${movie.description}"></p>
+	<p th:text="'Review: ' + ${movie.review}"></p>
+	<p th:text="'Tags: ' + ${movie.tag}"></p>
 
 </body>
 </html>
