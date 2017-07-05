@@ -17,29 +17,29 @@ public class Movie {
 	private Genre genre;
 
 	private String title;
-	
+
 	@Lob
 	private String description;
-	
+
 	@Lob
 	private String review;
 
 	private String imageUrl;
-	
+
 	private String tag;
-	
+
 	public Genre getGenre() {
 		return genre;
 	}
-	
+
 	public String getTitle() {
 		return title;
 	}
-	
+
 	public String getDescription() {
 		return description;
 	}
-	
+
 	public String getReview() {
 		return review;
 	}
@@ -47,7 +47,7 @@ public class Movie {
 	public String getImageUrl() {
 		return imageUrl;
 	}
-	
+
 	public String getTag() {
 		return tag;
 	}

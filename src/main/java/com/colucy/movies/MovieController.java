@@ -36,7 +36,7 @@ public class MovieController {
 	}
 
 	@RequestMapping("/movie")
-	public String fetchMovieDetail(@RequestParam("id") long id, Model model) {
+	public String fetchMovieDetail(@RequestParam("id") Long id, Model model) {
 		Movie selectedMovie = movieRepo.findOne(id);
 		model.addAttribute(selectedMovie);
 		return "movieDetail";
