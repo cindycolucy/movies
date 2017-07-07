@@ -45,6 +45,13 @@ public class MovieController {
 		return "movieDetail";
 	}
 	
+	@RequestMapping("/tag")
+	public String fetchTagDetail(@RequestParam("id") Long id, Model model) {
+		Tag selectedTag = tagRepo.findOne(id);
+		model.addAttribute(selectedTag);
+		return "tag";
+	}
+	
 		
 	@RequestMapping("/deleteTag")
 	public String deleteTag(@RequestParam long id) {
