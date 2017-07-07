@@ -1,20 +1,35 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title th:text="${movie.title}" />
+	<title th:text="${movie.title}"></title>
 </head>
 <body>
-
 	<a class = "backtomain" th:href="@{/genres(title=${movies})}">Back to Home</a>
 
-	<h1 th:text="${movie.title}" />
+	<h1 th:text="${movie.title}"></h1>
 
 	<img th:src="${movie.imageUrl}"/>
 
 	<p th:text="'Genre: ' + ${movie.genre}"></p>
 	<p th:text="'Description: ' + ${movie.description}"></p>
 	<p th:text="'Review: ' + ${movie.review}"></p>
-	<p th:text="'Tags: ' + ${movie.tag}"></p>
+	<!-- <p th:text="'Tags: ' + ${movie.tags}"></p> -->
+
+	<h4>Tags:</h4>
+
+	<form method="POST">
+		<input type="hidden" name="id" th:value="${movie.id}" />
+		<label>Tag: <input type="text" name="tag" /></label>
+		<br/>
+		<button th:formaction="@{/movie}">Create Tag</button>	 
+		
+		<ul>
+			<li th:each="currentTag: ${movie.tags}"><a
+				th:text="${currentTag.name}"
+				th:href="@{/movie(id=${currentTag.id})}" />
+				<button th:formaction="@{/deleteTag}" name="id" th:value="${currentTag.id}">Delete Tag</button></li>
+		</ul>
+	</form> -->
 
 </body>
 </html>

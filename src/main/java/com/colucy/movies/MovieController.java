@@ -15,6 +15,9 @@ public class MovieController {
 
 	@Resource
 	private GenreRepository genreRepo;
+	
+	@Resource
+	private TagRepository tagRepo;
 
 	@RequestMapping("/genres")
 	public String fetchGenre(Model model) {
@@ -40,6 +43,18 @@ public class MovieController {
 		Movie selectedMovie = movieRepo.findOne(id);
 		model.addAttribute(selectedMovie);
 		return "movieDetail";
+	}
+	
+		
+	@RequestMapping("/deleteTag")
+	public String deleteTag(@RequestParam long id) {
+		Tag toDelete = tagRepo.findOne(id);
+		for(Movie movie: toDelete.getMovies()) {
+			movie.remove(toDelete);
+			movieRepo.save(movie);
+		}
+		tagRepo.delete(toDelete);
+		return "redirect:/movie?id=" + id;
 	}
 
 }

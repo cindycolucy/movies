@@ -1,9 +1,14 @@
 package com.colucy.movies;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -26,7 +31,8 @@ public class Movie {
 
 	private String imageUrl;
 
-	private String tag;
+	@ManyToMany
+	private Set<Tag> tags;
 
 	public Genre getGenre() {
 		return genre;
@@ -48,8 +54,8 @@ public class Movie {
 		return imageUrl;
 	}
 
-	public String getTag() {
-		return tag;
+	public Set<Tag> getTags() {
+		return tags;
 	}
 
 	public Boolean hasImageUrl() {
@@ -60,14 +66,19 @@ public class Movie {
 
 	}
 
-	public Movie(Genre genre, String title, String description, String review, String imageUrl, String tag) {
+	public Movie(Genre genre, String title, String description, String review, String imageUrl, Tag... tags) {
 		this.genre = genre;
 		this.title = title;
 		this.description = description;
 		this.review = review;
 		this.imageUrl = imageUrl;
-		this.tag = tag;
+		this.tags = new HashSet<>(Arrays.asList(tags));
 
+	}
+
+	public void remove(Tag toDelete) {
+		tags.remove(toDelete);
+		
 	}
 
 }
