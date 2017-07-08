@@ -24,7 +24,7 @@
 				th:each="currentTag: ${movie.tags}"><a
 				th:text="${currentTag.name}"
 				th:href="@{/tag(id=${currentTag.id})}" />
-				<button th:formaction="@{/deleteTag}" name="id" th:value="${currentTag.id}">Delete Tag</button></li>
+				<button th:formaction="@{/deleteTag}" name="tagId" th:value="${currentTag.id}">Delete Tag</button></li>
 		</ul>
 	</form>
 
