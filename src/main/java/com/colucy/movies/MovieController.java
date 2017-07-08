@@ -15,7 +15,7 @@ public class MovieController {
 
 	@Resource
 	private GenreRepository genreRepo;
-	
+
 	@Resource
 	private TagRepository tagRepo;
 
@@ -44,24 +44,33 @@ public class MovieController {
 		model.addAttribute(selectedMovie);
 		return "movieDetail";
 	}
-	
+
 	@RequestMapping("/tag")
 	public String fetchTagDetail(@RequestParam("id") Long id, Model model) {
 		Tag selectedTag = tagRepo.findOne(id);
 		model.addAttribute(selectedTag);
 		return "tag";
 	}
-	
-		
-	@RequestMapping("/deleteTag")
-	public String deleteTag(@RequestParam long id) {
-		Tag toDelete = tagRepo.findOne(id);
-		for(Movie movie: toDelete.getMovies()) {
-			movie.remove(toDelete);
-			movieRepo.save(movie);
-		}
-		tagRepo.delete(toDelete);
+
+	@RequestMapping("/createTag")
+	public String createTag(@RequestParam(value = "id") Long id, String name) {
+		Tag tag = new Tag(name);
+		tagRepo.save(tag);
+		Movie movie = movieRepo.findOne(id);
+		movie.add(tag);
+		movieRepo.save(movie);
 		return "redirect:/movie?id=" + id;
 	}
 
+	@RequestMapping("/deleteTag")
+	public String deleteTag(@RequestParam long tagId, @RequestParam long movieId) {
+		Tag toDelete = tagRepo.findOne(tagId);
+		for (Movie movie : toDelete.getMovies()) {
+			movie.remove(toDelete);
+			movieRepo.save(movie);
+		}
+
+		tagRepo.delete(toDelete);
+		return "redirect:/movie?id=" + movieId;
+	}
 }

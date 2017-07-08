@@ -16,18 +16,22 @@
 
 	<h4>Tags:</h4>
 
-	<form method="POST">
-		<input type="hidden" name="id" th:value="${movie.id}" />
-		<label>Tag: <input type="text" name="tag" /></label>
-		<button th:formaction="@{/movie}">Create Tag</button>	 
-		
+
+	<form> 		
 		<ul>
-			<li th:each="currentTag: ${movie.tags}"><a
+				<input type="hidden" name="movieId" th:value="${movie.id}" />
+			<li 
+				th:each="currentTag: ${movie.tags}"><a
 				th:text="${currentTag.name}"
 				th:href="@{/tag(id=${currentTag.id})}" />
 				<button th:formaction="@{/deleteTag}" name="id" th:value="${currentTag.id}">Delete Tag</button></li>
 		</ul>
 	</form>
 
+	<form method="POST">
+		<input type="hidden" name="id" th:value="${movie.id}" />
+		<label>Tag: <input type="text" name="name" /></label>
+		<button th:formaction="@{/createTag}">Create Tag</button>
+	</form>	
 </body>
 </html>

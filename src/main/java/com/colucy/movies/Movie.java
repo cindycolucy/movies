@@ -80,5 +80,9 @@ public class Movie {
 		tags.remove(toDelete);
 		
 	}
+	public void add(Tag toAdd) {
+		tags.add(toAdd);
+		
+	}
 
 }
