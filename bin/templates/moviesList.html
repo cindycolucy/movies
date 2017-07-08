@@ -5,7 +5,8 @@
 <link rel="stylesheet" type="text/css" href="/css/style2.css"></link>
 </head>
 <body>
-<a class = "backtomain" th:href="@{/genres(title=${movies})}">Back to Home</a>
+<div class="container">
+<div class="container2"> <a class = "backtomain" th:href="@{/genres(title=${movies})}">Back to Home</a>
 
 <h1>Cindy's Movies Reviews</h1>
 
@@ -14,8 +15,10 @@
 	<ol type="1">
 		<li th:each="currentMovie: ${movies}"><a th:href="@{/movie(id=${currentMovie.id})}" th:text="${currentMovie.title}" /></li>
 	</ol>
-
-	<img src="/images/theater.jpeg"></img>
+</div>
+	<img class="theater" src="/images/theater.jpg"></img>
+	
+</div>
 
 </body>
 </html>

@@ -32,7 +32,27 @@ header {
   height: 20vh;
   color: blanchedalmond;
 }
-header, footer, article, nav, aside {
+header, footer, article, nav {
   padding: 1em;
+
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.container2 {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.theater {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-right: 50px;
+  margin-top: 50px;
 
 }
