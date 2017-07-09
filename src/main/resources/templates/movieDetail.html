@@ -16,15 +16,14 @@
 
 	<h4>Tags:</h4>
 
-
 	<form> 		
 		<ul>
-				<input type="hidden" name="movieId" th:value="${movie.id}" />
+			<input type="hidden" name="movieId" th:value="${movie.id}" />
 			<li 
-				th:each="currentTag: ${movie.tags}"><a
-				th:text="${currentTag.name}"
-				th:href="@{/tag(id=${currentTag.id})}" />
-				<button th:formaction="@{/deleteTag}" name="tagId" th:value="${currentTag.id}">Delete Tag</button></li>
+			th:each="currentTag: ${movie.tags}"><a
+			th:text="${currentTag.name}"
+			th:href="@{/tag(id=${currentTag.id})}" />
+			<button th:formaction="@{/deleteTag}" name="tagId" th:value="${currentTag.id}">Delete Tag</button></li>
 		</ul>
 	</form>
 
