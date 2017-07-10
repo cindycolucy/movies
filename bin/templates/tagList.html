@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Tags</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css"></link>
+</head>
+<body>
+	<a class = "backtomain" th:href="@{/genres(title=${movies})}">Back to Home</a>
+
+	<h1>Cindy's Movies Reviews</h1>
+
+	<h2>List of All Tags</h2>
+	
+	<div style="width: 300px; text-align: left">
+		<ul class="tagcloud" style="background-color: #003399; padding: 20px;">
+			<li><a href="#"
+				style="font-family: Arial; font-size: 15px; color: #e7e7e7;"
+				></a></li>
+				<li th:each="currentTag: ${tags}"><a th:href="@{/tag(id=${currentTag.id})}"
+					style="font-family: Helvetica; font-size: 10px; color: #a0a0a0;"
+					th:text="${currentTag.name}"></a></li>
+					<li th:each="currentTag: ${tags}"><a th:href="@{/tag(id=${currentTag.id})}"
+						style="font-family: Arial; font-size: 16px; color: #ffffff;"
+						th:text="${currentTag.name}"></a></li>
+						<li th:each="currentTag: ${tags}"><a th:href="@{/tag(id=${currentTag.id})}"
+							style="font-family: Times New Roman; font-size: 15px; color: #e7e7e7;"
+							th:text="${currentTag.name}"></a></li>
+						</ul>
+					</div>
+
+				</body>
+				</html>

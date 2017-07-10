@@ -1,0 +1,14 @@
+.tagcloud {
+  font-weight: bolder;
+  line-height: 1.4em;
+}
+.tagcloud li {
+  display: inline;
+  white-space: nowrap;
+  padding: 0;
+  margin: 0;
+}
+.tagcloud li a {
+  padding: 0 0.2em 0 0.2em;
+  text-decoration: none;
+}

@@ -52,6 +52,12 @@ public class MovieController {
 		return "tag";
 	}
 
+	@RequestMapping("/tags")
+	public String fetchTags(Model model) {
+		model.addAttribute("tags", tagRepo.findAll());
+		return "tagList";
+	}
+
 	@RequestMapping("/createTag")
 	public String createTag(@RequestParam(value = "id") Long id, String name) {
 		Tag tag = new Tag(name);

@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<title th:text="${movie.title}"></title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css"></link>
 </head>
 <body>
 	<a class = "backtomain" th:href="@{/genres(title=${movies})}">Back to Home</a>
@@ -14,7 +15,7 @@
 	<p th:text="'Description: ' + ${movie.description}"></p>
 	<p th:text="'Review: ' + ${movie.review}"></p>
 
-	<h4>Tags:</h4>
+	<h4><a th:href="@{/tags/}">Tags:</a></h4>
 
 	<form> 		
 		<ul>
